@@ -1,0 +1,191 @@
+import java.util.Scanner;
+
+public class Q1 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int countPos = 0;
+        int countNeg = 0;
+        int countEven = 0;
+        int countOdd = 0;
+        int sum = 0;
+        int user;
+        double average = 0;
+
+        System.out.println("Enter the first integer (0 to terminate):");
+        
+
+        while (true) {
+        	user = input.nextInt();
+        	sum += user;
+            average++;
+            
+            if (user == 0 && average == 1) 
+            	{
+            	System.out.println("No numbers are entered except 0.");
+                break;
+            	}
+            else if (user == 0)
+            	{
+            	average--;
+                break;
+            	}
+            if (user> 0) 
+            	{
+                countPos++;
+                System.out.println("Enter the next integer (0 to terminate): ");
+            	} 
+            else if (user < 0) 
+            	{
+                countNeg++;
+                System.out.println("Enter the next integer (0 to terminate): ");
+            	}
+
+            if (user % 2 == 0) 
+            	{
+                countEven++;
+            	} 
+            else 
+            	{
+                countOdd++;
+            	}
+        }
+
+            double average1 = sum / average;
+
+            System.out.println("The number of positives is " + countPos);
+            System.out.println("The number of negatives is " + countNeg);
+            System.out.println("The number of evens is " + countEven);
+            System.out.println("The number of odds is " + countOdd);
+            System.out.println("The total is " + sum);
+            System.out.printf("The average is %-3.2f", average1);
+
+        input.close();
+    }
+}
+
+
+
+
+
+public class Q2 
+{
+	public static void main(String[] args)
+	{
+	
+	int min;
+	int max = 10000;
+	
+	for (min = 1; min <= max; min++)
+	{
+		int sum = 0;
+		for (int x = 1; x < min; x++)
+		{
+			if (min % x == 0)
+			{
+				sum += x;
+			}
+		}
+		
+		if (sum == min)
+		{
+			System.out.println(sum);
+		}
+	}
+	}
+
+}
+
+
+
+
+public class Q3
+{
+	public static void main(String[] args)
+	{
+		int x;
+		int count = 100;
+		for (x = 100; x <= 200; x++)
+		{
+			
+			if (x % 5 == 0 ^ x % 6 == 0)
+			{
+				System.out.printf("%-4d", x);
+				count++;
+			}
+			if (count % 10 == 0)
+				System.out.println();
+		}
+	}
+
+}
+
+
+
+import java.util.Scanner;
+
+public class Q4 
+{
+	public static void main(String[] args)
+	{
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter number of students: ");
+		int students = input.nextInt();
+		System.out.println("Enter students name: ");
+		String topStudent1 = input.next();
+		System.out.println("Enter students grade: ");
+		double gradeStudent1 = input.nextDouble();
+		System.out.println("Enter students name: ");
+		String topStudent2 = input.next();
+		System.out.println("Enter students grade: ");
+		double gradeStudent2 = input.nextDouble();
+		
+		double top = 0;
+		String topStudentName = "";
+		double second = 0;
+		String secondStudentName = "";
+		
+		if (gradeStudent2 > gradeStudent1)
+		{
+			top = gradeStudent2;
+			topStudentName = topStudent2;
+			second = gradeStudent1;
+			secondStudentName = topStudent1;
+		}
+		else
+		{
+			top = gradeStudent1;
+			topStudentName = topStudent1;
+			second = gradeStudent2;
+			secondStudentName = topStudent2;
+		}
+		
+		for (int i = 0; i < (students-2); i++)
+		{
+			System.out.println("Enter a student name: ");
+			String tempStudent = input.next();
+			System.out.println("Enter a student's score: ");
+			double tempScore = input.nextDouble();
+			
+			if (tempScore > top)
+			{
+				second = top;
+				secondStudentName = topStudentName;	
+				top = tempScore;
+				topStudentName = tempStudent;
+				 
+			}
+			else if (tempScore > second && tempScore < top)
+			{
+				second = tempScore;
+				secondStudentName = tempStudent;
+			}
+		}
+		
+		System.out.println("Top two students:");
+		System.out.println(topStudentName + "'s score is " + top);
+		System.out.println(secondStudentName + "'s score is " + second);
+		
+	}
+
+}
