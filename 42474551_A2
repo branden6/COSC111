@@ -1,0 +1,129 @@
+
+
+import java.util.Scanner;
+
+
+public class Q1 {
+	public static void main(String[] args)
+	{
+		
+		Scanner input = new Scanner(System.in);
+		
+
+		System.out.println("Please enter v0, v1, and time: ");
+		double v0 = input.nextDouble();
+		double v1 = input.nextDouble();
+		double t = input.nextDouble();
+		
+		double a = (v1 - v0) / (t);
+		
+		System.out.println("the average acceleration is " + a + " metres per second squared.");
+		
+		input.close();
+		
+	
+	}
+}
+
+
+import java.util.Scanner;
+
+
+public class Q2 {
+	public static void main(String[] args)
+	{
+		
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Please enter the driving distance in miles: ");
+		double miles = input.nextDouble();
+		
+		System.out.println("Enter miles per gallon: ");
+		double gas = input.nextDouble();
+		
+		System.out.println("Enter the price per gallon: ");
+		double price = input.nextDouble();
+		
+		double costTotal = (miles / gas) * price;
+		
+		
+		System.out.println("The cost of driving is $" + costTotal + ".");
+		
+		input.close();
+		
+	}
+}
+
+
+import java.util.Scanner;
+
+public class Q3 {
+	public static void main(String[] args)
+	{
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Please enter x1 and y1: ");
+		double xFirst = input.nextDouble();
+		double yFirst = input.nextDouble();
+		
+		System.out.println("Enter x2 and y2: ");
+		
+		double xSecond = input.nextDouble();
+		double ySecond = input.nextDouble();
+		
+		double distance = (Math.pow(xSecond - xFirst, 2)) + (Math.pow(ySecond - yFirst, 2));
+		
+		double result = Math.sqrt(distance);
+		
+		System.out.println("The distance of the two points is " + result);
+		
+		input.close();
+		
+	}
+
+}
+
+
+import java.util.Scanner;
+
+
+public class Q4 {
+	public static void main(String[] args)
+	{
+		//calculate area of a triangle
+		
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("enter three points of a triangle: ");
+		
+		System.out.println("x1, y1: ");
+		int x1 = input.nextInt();
+		int y1 = input.nextInt();
+		
+		System.out.println("x2, y2: ");
+		int x2 = input.nextInt();
+		int y2 = input.nextInt();
+		
+		System.out.println("x3, y3: ");
+		int x3 = input.nextInt();
+		int y3 = input.nextInt();
+		
+		double oneTwo = (Math.pow((x2 - x1), 2)) + (Math.pow(y2 - y1, 2));
+		double oneThree = (Math.pow((x3 - x1), 2)) + (Math.pow(y3 - y1, 2));
+		double twoThree = (Math.pow((x3 - x2), 2)) + (Math.pow(y3 - y2, 2));
+		
+		
+		double s1 = Math.sqrt(oneTwo);
+		double s2 = Math.sqrt(oneThree);
+		double s3 = Math.sqrt(twoThree);
+		
+		double s = (s1 + s2 + s3)/2;
+		double area = Math.sqrt(s * (s-s1) * (s-s2) * (s-s3));
+		
+		System.out.println("The area of the triangle is " + area + 
+				" metres squared.");
+		
+		input.close();
+	}
+
+}
