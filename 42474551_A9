@@ -1,0 +1,182 @@
+import java.util.Arrays;
+
+public class BankAccount {
+	private int id;
+	private double balance;
+	private double annualInterestRate;
+	private String [] beneficiaries;
+	private static int count;
+
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+
+	}
+	public BankAccount(double annualInterestRate, double balance, String... beneficiaries)
+	{
+		this.annualInterestRate = annualInterestRate;
+		this.balance = balance;
+		this.beneficiaries = beneficiaries;
+		count++;
+		this.id = count;
+	}
+	public BankAccount()
+	{
+		this.balance = 0;
+		this.annualInterestRate = 0;
+		this.beneficiaries = new String[3];
+	}
+	public int getid()
+	{
+		return id;
+	}
+	public double getBalance()
+	{
+		return balance;
+	}
+	public double getAnnualInterestRate()
+	{
+		return annualInterestRate;
+	}
+	public String[] getBeneficiaries()
+	{
+	return beneficiaries;
+	}
+	public int getCount()
+	{
+		return count;
+	}
+	public void setBalance(double newBalance)
+	{
+		balance = newBalance;
+	}
+	public void setAnnualInterestRate(double newAnnualInterestRate)
+	{
+		annualInterestRate = newAnnualInterestRate;
+	}
+	public void setBeneficiaries(String... list)
+	{
+		beneficiaries = list;
+	}
+	public double getMonthlyInterest()
+	{
+		return (balance * (annualInterestRate/100) / 12);
+	}
+	public double getMonthlyInterestRate()
+	{
+		return annualInterestRate / 12;
+	}
+	public int getNumberOfBeneficiaries()
+	{
+		return beneficiaries.length;
+	}
+	public double withdraw(double amount)
+	{
+		this.balance = balance-amount;
+		return balance;
+	}
+	public double deposit(double amount)
+	{
+		this.balance = balance+amount;
+		return balance;
+	}
+	public void displayInfo()
+	{
+		System.out.printf("Account ID: %1s\n", getid());
+		System.out.printf("Current balance: $%.2f\n", getBalance());
+		System.out.printf("Annual interest rate: %.3f%%\n", getAnnualInterestRate());
+		System.out.printf("Monthly interest rate: %.3f%%\n", getMonthlyInterestRate());
+		System.out.printf("Monthly interest: $%.2f\n", getMonthlyInterest());
+		System.out.printf("%s beneficiaries: %s \n", getNumberOfBeneficiaries(), Arrays.toString(beneficiaries));
+	}
+
+}
+
+
+
+
+
+
+public class Cuboid 
+{
+	double l, w, h;
+	String color;
+	
+
+	public static void main(String[] args) 
+	{
+		
+	}
+	public Cuboid(double l, double w, double h, String color)
+	{
+		this.l = l;
+		this.w = w;
+		this.h = h;
+		this.color = color;
+	}
+	public Cuboid()
+	{
+		this.l = 1;
+		this.w = 1;
+		this.h = 1;
+		this.color = "White";
+	}
+	public String getColor()
+	{
+		return color;
+	}
+	
+	public double getVolume()
+	{
+		return (l*w*h);
+	}
+	public double getSurfaceArea()
+	{
+		return 2*(l*w + l*h + w*h);
+	}
+	public void displayInfo()
+	{
+		System.out.printf("Color: %s", getColor());
+		System.out.printf("\nDimensions: %4.2f X %4.2f X %4.2f", l, w, h);
+		System.out.printf("\nSurface area: %.2f", getSurfaceArea());
+		System.out.printf("\nVolume: %.2f", getVolume());
+		System.out.println();
+	}
+
+}
+
+
+
+
+public class CuboidTest {
+
+	public static void main(String[] args) 
+	{
+		Cuboid a1 = new Cuboid();
+		Cuboid b1 = new Cuboid(8, 3.5, 5.9, "Green");
+		
+		System.out.println("Cuboid 1 ");
+		a1.displayInfo();
+		System.out.println("Cuboid 2 ");
+		b1.displayInfo();
+		
+	}
+
+}
+
+
+
+
+
+
+public class TestBankAccount {
+
+	public static void main(String[] args) 
+	{
+		BankAccount a = new BankAccount(6.7, 33000.0, "John", "Lily");
+		a.withdraw(1500);
+		a.deposit(1000);
+		a.displayInfo();
+	}
+
+}
