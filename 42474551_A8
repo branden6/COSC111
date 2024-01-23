@@ -1,0 +1,95 @@
+import java.util.Scanner;
+
+public class Q3 
+{
+	public static void main(String[] args)
+	{
+		String[][] provinceCapitals = { {"Alberta", "Edmonton"},
+										{"British Columbia", "Victoria"},
+										{"Manitoba", "Winnipeg"},
+										{"New Brunswick", "Fredericton"},
+										{"Newfoundland and Labrador", "St. John's"},
+										{"Nova Scotia", "Halifax"},
+										{"Ontario", "Toronto"},
+										{"Prince Edward Island", "Charlottetown"},
+										{"Quebec", "Quebec City"},
+										{"Saskatchewan", "Regina"} };
+		
+		Scanner input = new Scanner(System.in);
+		int count = 0;
+		for (int provinces = 0; provinces<provinceCapitals.length;provinces++)
+		{
+			System.out.println("What is the capital of " + provinceCapitals[provinces][0] + "?");
+				String answer = input.nextLine();
+				if (answer.equalsIgnoreCase(provinceCapitals[provinces][1]))
+					{
+						count++;
+					}
+		}
+		System.out.println("You got " + count + " question(s) right.");
+		input.close();
+	}
+}
+
+
+
+
+
+
+public class Test 
+{
+	public static void main(String[] args)
+	{
+		int [][] m1 = { { 14, 11, 13, 12 },
+					    { 18, 15, 13, 13 },
+					    { 19, 16, 15, 17 }};
+		
+		int [][] m2 = { { 54, 53, 51, 52 },
+					    { 51, 59, 52, 56 },
+					    { 53, 54, 52, 58 } };
+		System.out.println("First array: ");
+		displayArray(m1);
+		System.out.println("Second array: ");
+		displayArray(m2);
+		
+		System.out.println();
+		System.out.println("The addition of the above two arrays is: ");
+		displayArray(addMatrix(m1, m2));
+		
+		System.out.println();
+		System.out.print("The sum of the first column in the first array is: ");
+		System.out.println(sumCol(m1, 0));
+	}
+	public static void displayArray(int[][] m) 
+	{
+	     for (int r = 0; r < m.length; r++) 
+	     {
+	        for (int c = 0; c < m[r].length; c++)
+	        	System.out.print(m[r][c] + " "); 
+	        System.out.println();
+	     }
+	}
+	public static int[][] addMatrix(int[][] a, int[][] b)
+	{
+		int[][] addMatrix = new int[a.length][a[0].length];
+		if (a[0].length != b[0].length || a.length != b.length)
+			return null;
+		else
+		for (int r=0;r<a.length;r++)
+		{
+			for (int c=0;c<a[0].length;c++)
+			{
+				addMatrix[r][c] = a[r][c] + b[r][c];
+			}
+		}
+		return addMatrix;
+	}
+	public static int sumCol (int[][]m, int colIdx)
+	{
+		int sumCol = 0;
+		for (int r = 0; r<m.length;r++)
+			sumCol += m[r][colIdx];
+		
+		return sumCol;
+	}
+}
