@@ -1,0 +1,180 @@
+import java.util.Scanner;
+
+
+public class Q1 
+{
+	public static void main(String[] args)
+	{
+		//user input for wind speed
+		
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter the wind speed in miles per hour "
+				+ "(must be greater than 2):");
+		double wind = input.nextDouble();
+		
+		System.out.println("Enter temperature in fahrenheit "
+				+ "(between -58 and 41 F):");
+		double temp = input.nextDouble();
+		
+		double T = 35.74 + (0.6215 * (temp)) - (35.75 * (Math.pow(wind, 0.16)))
+				+ (0.4275 * temp * (Math.pow(wind, 0.16)));
+		
+		System.out.println("The wind chill index is " + T);
+		
+		input.close();
+		
+	}
+
+}
+
+
+import java.util.Scanner;
+
+
+public class Q2 
+{
+	public static void main(String [] args)
+	{
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter a real number: ");
+		double x = input.nextDouble();
+		
+		System.out.println("integer part: " + (int)(x));
+		
+		double y = x%1.0;
+				
+		System.out.println("Fraction part: " + y);
+		
+		input.close();
+		
+	}
+
+}
+
+
+import java.util.Scanner;
+
+public class Q3 
+{
+	public static void main(String[] args)
+	{
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter an integer between 0 and 999: ");
+		int x = input.nextInt();
+		
+		if (x >= 10) 
+		{
+			int a = x%10;
+			
+			int b = (x - a)/10;
+			
+			int f = b%10;
+			
+			int d = b/10;
+			
+			int e = (a + f + d);
+			
+			
+			System.out.println("The sum of all numbers in " + x +
+					" is " + e);
+		}
+		else 
+		{
+			System.out.println("the sum of all numbers is " + x);
+			
+		}
+		
+	input.close();
+		
+	}
+
+}
+
+
+import java.util.Scanner;
+
+
+public class Q4 
+{
+	public static void main(String[] args)
+	{
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter a number to watch the operation magic!: ");
+		double x = input.nextDouble();
+		
+		//multiplying tax (12%)
+		
+		double y = x * 0.12;
+		System.out.println("This is how much you would pay in tax on that number: " + y);
+		
+		//halfing the number
+		
+		double a = x/2;
+		System.out.println("Half of your number: " + a);
+		
+		//the total with tax using augmented assignment operator
+		
+		double t = x * 1.12;
+		System.out.println("the total amount including tax: " + t);
+		
+		//checking if the number is odd or even with augmented assignment
+		
+		double v = x%2;
+		if (v == 0)
+				{
+				System.out.println("your number is even.");
+				}
+		else 
+			{
+			System.out.println("your number is an odd number.");
+			}
+		
+		//using incremented and decrement operators for pre and postfixing
+		
+		double pre = ++x;
+		System.out.println("Here is the number with 1 added to it as the prefix: " + x);
+		double post = x--;
+		System.out.println("And back to the original number with a postfix: " + x);
+		
+		
+		input.close();
+		
+	}
+
+}
+
+
+
+
+
+public class Q5 
+{
+	public static void main(String[] args)
+	{
+		
+		System.out.print("This will generate you a random, "
+				+ "valid license plate: ");
+		
+		double a = (char)(Math.random() * 26 + 'A');
+		System.out.print((char)a);
+		double b = (char)(Math.random() * 26 + 'A');
+		System.out.print((char)b);
+		double c = (char)(Math.random() * 26 + 'A');
+		System.out.print((char)c);
+		
+		int d = (int)(Math.random() * 10);
+		System.out.print(d);
+		int e = (int)(Math.random() * 10);
+		System.out.print(e);
+		int f = (int)(Math.random() * 10);
+		System.out.print(f);
+		int g = (int)(Math.random() * 10);
+		System.out.print(g);
+		
+	}
+
+}
