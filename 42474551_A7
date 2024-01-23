@@ -1,0 +1,132 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Q1 
+{
+	public static void main(String[] args)
+	{
+		String s1 = "Enter number of students: ";
+		String s2 = "Enter student grades: ";
+		double [] numbers = getNumsFromUser(s1, s2);
+		System.out.println(Arrays.toString(numbers));
+	}
+	public static double[] getNumsFromUser(String msg1, String msg2)
+	{
+		Scanner input = new Scanner(System.in);
+		System.out.println(msg1);
+		int numberOfStudents = input.nextInt();
+		double[] grades = new double[numberOfStudents];
+		System.out.println(msg2);
+		for (int i = 0; i<numberOfStudents;i++)
+		{
+			grades[i] = input.nextDouble();
+		}
+		input.close();
+		return grades;
+	}
+
+}
+
+
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Q2 
+{
+	public static void main(String[] args)
+	{
+		String s1 = "Enter number of students: ";
+		String s2 = "Enter student grades: ";
+		double[] marks = getNumsFromUser(s1, s2);
+		showLetterGrades(marks);
+	}
+	public static double[] getNumsFromUser(String msg1, String msg2)
+	{
+		Scanner input = new Scanner(System.in);
+		System.out.println(msg1);
+		int numberOfStudents = input.nextInt();
+		double[] grades = new double[numberOfStudents];
+		System.out.println(msg2);
+		for (int i = 0; i<numberOfStudents;i++)
+		{
+			grades[i] = input.nextDouble();
+		}
+		input.close();
+		return grades;
+	}
+	public static void showLetterGrades(double[] grades)
+	{
+		double highestMark = highestGrade(grades);
+
+		for (int i = 0; i < grades.length; i++) 
+		{
+			char mark;
+			double difference = highestMark - grades[i];
+			if (difference<=10)
+				mark = 'A';
+			else if (difference>10 && difference<= 20)
+				mark = 'B';
+			else if (difference>20 && difference<=30)
+				mark = 'C';
+			else if (difference>30 && difference <=40)
+				mark = 'D';
+			else
+				mark = 'F';
+			System.out.println("Student " + (i + 1) + "'s score is " + grades[i] + " and grade is " + mark);
+		}
+	}
+	public static double highestGrade(double[] grades)
+	{
+		double highestGrade = grades[0];
+		for (int i =1; i<grades.length;i++)
+		{
+			if (grades[i]> highestGrade)
+				highestGrade = grades[i];
+		}
+		return highestGrade;
+	}
+}
+
+
+
+import java.util.Scanner;
+import java.util.Arrays;
+public class Q3 
+{
+	public static void main(String[] args)
+	{
+		
+		String s1 = "How many numbers in the list? ";
+		String s2 = "Enter the list: ";
+		double [] numbers = getNumsFromUser(s1, s2);
+		if(isSorted(numbers))
+			System.out.println("The list is already sorted.");
+		else
+			System.out.println("The list is not sorted.");
+	}
+	public static double[] getNumsFromUser(String msg1, String msg2)
+	{
+		Scanner input = new Scanner(System.in);
+		System.out.println(msg1);
+		int numberList = input.nextInt();
+		double[] numbers = new double[numberList];
+		System.out.println(msg2);
+		for (int i = 0; i<numberList;i++)
+		{
+			numbers[i] = input.nextDouble();
+		}
+		input.close();
+		return numbers;
+	}
+	public static boolean isSorted(double[] list)
+	{
+		for (int i=0;i<list.length-1;i++)
+		{
+			if (list[i] > list[i+1])
+				return false;
+		}
+		return true;
+	}
+
+}
