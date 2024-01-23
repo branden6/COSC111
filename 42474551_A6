@@ -1,0 +1,142 @@
+import java.util.Scanner;
+
+public class Q1 
+{
+	public static void main(String[] args)
+	{
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter time in seconds: ");
+		int seconds = input.nextInt();
+		System.out.printf(convertTime(seconds));
+		input.close();
+		
+	}
+	public static String convertTime(int totalSeconds)
+	{
+		String convertTime;
+		if (totalSeconds>3600)
+		{
+			int hours = totalSeconds/3600;
+			int minutes = (totalSeconds % 3600)/60;
+			int seconds = totalSeconds % 60;
+			convertTime = (hours + ":" + minutes + ":" + seconds);
+		}
+		else
+		{
+			int minutes = totalSeconds/60;
+			int seconds = totalSeconds%60;
+			convertTime = ("0:" + minutes + ":" + seconds);
+		}
+		return convertTime;
+	}
+
+}
+
+
+
+import java.util.Scanner;
+
+public class Q2 
+{
+	public static void main(String[] args)
+	{
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter three sides in double: ");
+		double side1 = input.nextDouble();
+		double side2 = input.nextDouble();
+		double side3 = input.nextDouble();
+		while (!isValid(side1, side2, side3))
+		{
+			System.out.println("Invalid input. Try Again.");
+			System.out.println("Enter three sides in double: ");
+			side1 = input.nextDouble();
+			side2 = input.nextDouble();
+			side3 = input.nextDouble();
+		}
+		if (isValid(side1,side2,side3))
+			System.out.printf("%-6.3f", area(side1, side2, side3));
+		
+		input.close();
+	}
+	public static boolean isValid(double side1, double side2, double side3)
+	{
+		if (side1+side2>side3 && side2+side3>side1 && side1+side3>side2)
+			return true;
+		else
+			return false;
+	}
+	public static double area(double side1, double side2, double side3)
+	{
+		double s = (side1 + side2 + side3)/2;
+		double area = Math.sqrt(s*(s-side1)*(s-side2)*(s-side3));
+		return area;
+	}
+	
+
+}
+
+
+
+import java.util.Scanner;
+
+public class Q3 
+{
+	public static void main(String[] args)
+	{
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter a positive integer: ");
+		int number = input.nextInt();
+		if (isPalindrome(number))
+		{
+			System.out.println(number + " is palindrome");
+		}
+		else
+			System.out.println(number + " is not palindrome");
+		input.close();
+	}
+	public static int reverse(int number)
+	{
+		int reversedNumber = 0;
+		int digit;
+        while (number != 0) 
+        {
+            digit = number % 10;
+            reversedNumber = reversedNumber * 10 + digit;
+            number /= 10;
+        }
+        return reversedNumber;
+		
+	}
+	public static boolean isPalindrome(int number)
+	{
+		return (number == reverse(number));
+	}
+
+}
+
+
+
+
+
+public class Q4 
+{
+	public static void main(String[] args) 
+	{
+		int a = 10;
+		int b = 20;
+		int count = countPerfectSquares(a, b);
+		System.out.printf("Range [%d,%d] has %d of Perfect Squares.", a, b, count);
+	}
+	public static int countPerfectSquares(int n1, int n2) 
+	{
+		int count = 0;
+		for (int i = n1; i <= n2; i++)
+		if (isPerfectSquare(i)) count++;
+		    return count;
+	}
+	private static boolean isPerfectSquare(int num) 
+	{
+		int sq = (int)Math.sqrt(num);
+		    return (sq*sq == num);
+	}
+}
